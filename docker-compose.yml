@@ -1,11 +1,11 @@
-version: '3'
+version: "3"
 
 services:
   db:
     container_name: notas_dos_alunos_db
     image: mysql:8.0.23
-    restart: no
+    restart: always
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: password

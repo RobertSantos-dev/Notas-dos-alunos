@@ -20,12 +20,13 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-promise": "^6.1.1",
-    "ts-node-dev": "1.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "4.17",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "ts-node": "^10.9.1"
   }
 }
