@@ -1,11 +1,10 @@
-import express, { Request, Response } from "express";
-import statusCodes from "./utils/statusCodes";
+import express from "express";
+import alunosController from "./controllers/alunos.controller";
 
 const app = express();
 app.use(express.json());
 
-app.get('/', (_req: Request, res: Response): void => {
-  res.status(statusCodes.OK).json({ message: "Express + TypeScript" });
-});
+app.get('/alunos', alunosController.getAll);
+app.get('/alunos/:id', alunosController.getId);
 
 export default app;
