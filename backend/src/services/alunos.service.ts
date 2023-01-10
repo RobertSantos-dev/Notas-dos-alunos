@@ -10,9 +10,14 @@ const getAll = async () => {
 
 const getId = async (id: number) => {
   const result: AlunosGet = await alunosModel.getId(id);
-
+  
   if (!result) {
-    return { type: statusCodes.NOT_FOUND, message: 'Aluno não encontrado!' }
+    const res = {
+      type: statusCodes.NOT_FOUND,
+      message: { message: 'Aluno não encontrado!' }
+    };
+
+    return res;
   }
 
   return { type: statusCodes.OK, message: result }

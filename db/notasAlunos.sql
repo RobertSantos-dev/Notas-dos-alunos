@@ -38,7 +38,7 @@ VALUES
   ('Fabiana Oliveira de Melo');
 
 INSERT INTO
-  notasAlunos.displinas (name)
+  notasAlunos.disciplinas (name)
 VALUES
   ('Língua Portuguesa'),
   ('Matemática'),
