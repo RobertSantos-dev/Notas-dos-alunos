@@ -13,10 +13,16 @@ CREATE TABLE notasAlunos.disciplinas (
   name TEXT NOT NULL
 );
 
-CREATE TABLE notasAlunos.avaliacoes (
+CREATE TABLE IF NOT EXISTS notasAlunos.avaliacoes (
   id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
   aluno_id INTEGER,
   disciplina_id INTEGER,
+  `1°_avaliacao` DECIMAL(4, 2) NOT NULL,
+  `2°_avaliacao` DECIMAL(4, 2) NOT NULL,
+  `3°_avaliacao` DECIMAL(4, 2) NOT NULL,
+  `4°_avaliacao` DECIMAL(4, 2) NOT NULL,
+  media_final DECIMAL(4, 2),
+  resultado_final VARCHAR(12),
 
   FOREIGN KEY (aluno_id) REFERENCES notasAlunos.alunos (id),
   FOREIGN KEY (disciplina_id) REFERENCES notasAlunos.disciplinas (id)
