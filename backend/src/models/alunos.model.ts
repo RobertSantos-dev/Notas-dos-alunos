@@ -1,4 +1,4 @@
-import { RowDataPacket } from "mysql2";
+import { RowDataPacket, ResultSetHeader } from "mysql2";
 import connection from "./connection";
 import AlunosGet from "../interface/alunos.interface";
 
@@ -23,4 +23,15 @@ const getId = async (id: number): Promise<AlunosGet> => {
   return result as AlunosGet;
 }
 
-export default { getAll, getId }
+const insert = async (aluno: string): Promise<number> => {
+  const [{ insertId }] = await connection.execute<ResultSetHeader>(
+    `INSERT INTO notasAlunos.alunos (full_name)
+     VALUES (?)
+   `,
+    [aluno]
+  );
+    return insertId;
+  ;
+}
+
+export default { getAll, getId, insert }

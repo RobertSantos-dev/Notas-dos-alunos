@@ -23,4 +23,10 @@ const getId = async (id: number) => {
   return { type: statusCodes.OK, message: result }
 };
 
-export default { getAll, getId };
+const insert = async (aluno: string) => {
+  const result: number = await alunosModel.insert(aluno);
+
+  return { type: null, message: statusCodes.CREATED }
+}
+
+export default { getAll, getId, insert };

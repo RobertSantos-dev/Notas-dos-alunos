@@ -10,4 +10,6 @@ app.get('/alunos/:id', alunosController.getId);
 app.get('/disciplinas', disciplinasController.getAll);
 app.get('/disciplinas/:id', disciplinasController.getId);
 
+app.post('/aluno', alunosController.insert)
+
 export default app;

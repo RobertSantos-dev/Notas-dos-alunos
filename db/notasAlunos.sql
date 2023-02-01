@@ -13,6 +13,11 @@ CREATE TABLE notasAlunos.disciplinas (
   name TEXT NOT NULL
 );
 
+CREATE TABLE notasAlunos.resultado (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  resultado TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS notasAlunos.avaliacoes (
   id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
   aluno_id INTEGER,
@@ -22,10 +27,11 @@ CREATE TABLE IF NOT EXISTS notasAlunos.avaliacoes (
   `3°_avaliacao` DECIMAL(4, 2) NOT NULL,
   `4°_avaliacao` DECIMAL(4, 2) NOT NULL,
   media_final DECIMAL(4, 2),
-  resultado_final VARCHAR(12),
+  resultado_final INTEGER,
 
   FOREIGN KEY (aluno_id) REFERENCES notasAlunos.alunos (id),
   FOREIGN KEY (disciplina_id) REFERENCES notasAlunos.disciplinas (id)
+  FOREIGN KEY (resultado_final) REFERENCES notasAlunos.resultado (id)
 );
 
 -- Populando Tabelas
@@ -49,3 +55,10 @@ VALUES
   ('Biologia'),
   ('Inglês'),
   ('Química');
+
+INSERT INTO
+  notasAlunos.resultado (resultado)
+VALUES
+  ('Aprovado'),
+  ('Recuperação'),
+  ('Reprovado');

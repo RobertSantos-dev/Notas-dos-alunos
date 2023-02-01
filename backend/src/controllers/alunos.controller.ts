@@ -1,5 +1,6 @@
 import { Response, Request } from "express";
 import alunosService from "../services/alunos.service";
+import statusCodes from "../utils/statusCodes";
 
 const getAll = async (_req: Request, res: Response) => {
   const { type, message } = await alunosService.getAll();
@@ -14,4 +15,13 @@ const getId = async (req: Request, res: Response) => {
   return res.status(type).json(message);
 };
 
-export default { getAll, getId };
+const insert = async (req: Request, res: Response) => {
+  const { name } = req.body;
+  const { type, message } = await alunosService.insert(name);
+
+  if (type) { return res.status(type).json({ message }) }
+
+  return res.status(statusCodes.CREATED).json(message);
+}
+
+export default { getAll, getId, insert };
