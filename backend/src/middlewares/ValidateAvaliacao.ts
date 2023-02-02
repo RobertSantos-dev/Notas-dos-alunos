@@ -8,7 +8,7 @@ const ValidateInsert = (req: Request, res: Response, next: NextFunction) => {
     req.body['2°Avaliacao'], req.body['4°Avaliacao']
   ];
 
-  if (objReq.every((e) => e)) {
+  if (objReq.some((e) => e === undefined)) {
     return res.status(statusCodes.NOT_FOUND).json(
       { message: 'one of the fields was not declared correctly' }
     )
