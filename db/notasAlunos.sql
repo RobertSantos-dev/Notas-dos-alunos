@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS notasAlunos.avaliacoes (
   resultado_final INTEGER,
 
   FOREIGN KEY (aluno_id) REFERENCES notasAlunos.alunos (id),
-  FOREIGN KEY (disciplina_id) REFERENCES notasAlunos.disciplinas (id)
+  FOREIGN KEY (disciplina_id) REFERENCES notasAlunos.disciplinas (id),
   FOREIGN KEY (resultado_final) REFERENCES notasAlunos.resultado (id)
 );
 
@@ -60,5 +60,5 @@ INSERT INTO
   notasAlunos.resultado (resultado)
 VALUES
   ('Aprovado'),
-  ('Recuperação'),
+  -- ('Recuperação'),
   ('Reprovado');
