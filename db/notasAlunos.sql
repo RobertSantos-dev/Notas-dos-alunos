@@ -23,9 +23,11 @@ CREATE TABLE IF NOT EXISTS notasAlunos.avaliacoes (
   aluno_id INTEGER,
   disciplina_id INTEGER,
   `1°_avaliacao` DECIMAL(4, 2) NOT NULL,
-  `2°_avaliacao` DECIMAL(4, 2) NOT NULL,
-  `3°_avaliacao` DECIMAL(4, 2) NOT NULL,
-  `4°_avaliacao` DECIMAL(4, 2) NOT NULL,
+  `2°_avaliacao` DECIMAL(4, 2),
+  `1°_recuperacao` DECIMAL(4, 2),
+  `3°_avaliacao` DECIMAL(4, 2),
+  `4°_avaliacao` DECIMAL(4, 2),
+  `2°_recuperacao` DECIMAL(4, 2),
   media_final DECIMAL(4, 2),
   resultado_final INTEGER,
 
@@ -60,5 +62,5 @@ INSERT INTO
   notasAlunos.resultado (resultado)
 VALUES
   ('Aprovado'),
-  -- ('Recuperação'),
-  ('Reprovado');
+  ('Em andamento'),
+  ('Reprovado'),
