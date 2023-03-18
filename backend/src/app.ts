@@ -13,8 +13,12 @@ app.get('/alunos', alunosController.getAll);
 app.get('/alunos/:id', alunosController.getId);
 app.get('/disciplinas', disciplinasController.getAll);
 app.get('/disciplinas/:id', disciplinasController.getId);
+app.get('/avaliacao', avaliacoesController.getAll);
+app.get('/avaliacao/:id', avaliacoesController.getId);
 
 app.post('/aluno', ValitadeAlunos, alunosController.insert);
-app.post('/avaliacao', ValidateAvaliacao, avaliacoesController.insert);
+app.post('/avaliacao', ValidateAvaliacao.VInsert, avaliacoesController.insert);
+
+app.put('/avaliacao/:id', ValidateAvaliacao.VUpdate, avaliacoesController.update);
 
 export default app;
